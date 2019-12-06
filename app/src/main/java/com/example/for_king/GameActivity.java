@@ -17,7 +17,7 @@ public class GameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        Game game = new Game("","");
+        Game game = new Game("","1");
         Intent i = this.getIntent();;
         final String name = i.getStringExtra("name");
         //game.main(i.getStringExtra("name"));
@@ -45,21 +45,22 @@ public class GameActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(GameActivity.this, GameActivity1.class);
-                Game game = new Game(name,Integer.toString(getId()-1));
+                //Intent i = new Intent(GameActivity.this, GameActivity1.class);
+                Game game = new Game(name,Integer.toString(idRb));
                 //game.setCondition(Integer.toString(getId(idRb) - 1));
                 //game.setValue();
 
-                i.putExtra(Game.class.getSimpleName(), game);
+                Intent i;
                 if(game.nextGame){
                     //i.putExtra(Game.class.getCanonicalName(),game);
-                    startActivity(i);
+                     i = new Intent(GameActivity.this, GameActivity1.class);
                 } else {
                     //i.putExtra(Game.class.getCanonicalName(),game);
-                    i = new Intent(GameActivity.this, EndActivity.class);
-                    startActivity(i);
+                     i = new Intent(GameActivity.this, EndActivity.class);
                 }
 
+                //i.putExtra(Game.class.getSimpleName(), game);
+                startActivity(i);
             }
         });
 
@@ -89,7 +90,7 @@ public class GameActivity extends Activity {
                 return 3;
             //break;
         }
-        return 0;
+        return 1;
     }
 
     public int getId(int idRb){
@@ -106,7 +107,8 @@ public class GameActivity extends Activity {
                 return 3;
             //break;
         }
-        return 0;
+        return 1;
+
     }
 
 }
