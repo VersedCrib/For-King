@@ -73,7 +73,7 @@ public class GameActivity1 extends Activity {
                 return 3;
             //break;
         }
-        return 0;
+        return 1;
     }
 
     public int getId(int idRb){
@@ -90,7 +90,7 @@ public class GameActivity1 extends Activity {
                 return 3;
             //break;
         }
-        return 0;
+        return 1;
     }
 
 

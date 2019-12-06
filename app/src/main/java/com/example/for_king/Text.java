@@ -9,21 +9,23 @@ public class Text {
             }
         }
 
-        situations[0][0].s = "На ваш путь выходит бандит и спрашивает с вас деньги";
+        situations[0][0].s = "На ваш путь выходит бандит и спрашивает с вас деньги.";
+
         situations[0][1].s = "Ударить его";
         situations[0][1].next = false;
         situations[0][2].s = "Вызвать на дуэль";
-        situations[0][1].next = false;
+        situations[0][2].next = false;
         situations[0][3].s = "Откупиться (-10 золотых)";
-        situations[0][1].next = true;
+        situations[0][3].next = true;
 
-        situations[1][0].s = "На ваш путь выходит стражник и требует с вас выкуп";
+        situations[1][0].s = "На ваш путь выходит стражник и требует с вас выкуп.";
+
         situations[1][1].s = "Ударить его";
         situations[1][1].next = false;
         situations[1][2].s = "Вызвать на дуэль";
-        situations[1][1].next = false;
+        situations[1][2].next = false;
         situations[1][3].s = "Откупиться (-20 золотых)";
-        situations[1][1].next = true;
+        situations[1][3].next = true;
 
     }
 
