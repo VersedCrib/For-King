@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".GameActivity">
+
+    <TextView
+        android:id="@+id/tw_inf_game"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="Вы находитесь у входа в замок. У вас стражники спрашивают ваше имя."
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/tw_name"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="fill_parent"
+        android:layout_height="130dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintTop_toBottomOf="@+id/tw_inf_game"
+        tools:layout_editor_absoluteX="0dp">
+
+        <RadioButton
+            android:id="@+id/rb_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RadioButton" />
+
+        <RadioButton
+            android:id="@+id/rb_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RadioButton" />
+
+        <RadioButton
+            android:id="@+id/rb_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RadioButton" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/b_answer"
+        android:layout_width="fill_parent"
+        android:layout_height="76dp"
+        android:layout_marginTop="64dp"
+        android:text="Ответить"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        tools:layout_editor_absoluteX="141dp" />
+
+    <TextView
+        android:id="@+id/tw_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="24dp"
+        android:text="Name: "
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tw_gold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="68dp"
+        android:text="Gold: "
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
