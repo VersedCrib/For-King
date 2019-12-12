@@ -1,12 +1,10 @@
 package com.example.for_king;
 
-import android.content.Intent;
-
 import java.io.Serializable;
 
 public class Game implements Serializable {
     boolean nextGame;
-    String condition;
+    String condition = "";
     int num_level;
     int situations;
     Gamers gamers;
@@ -19,14 +17,18 @@ public class Game implements Serializable {
         nextGame();
     }
 
+    public void setConditions(String s){
+        condition = condition.concat(s);
+        setValue();
+    }
+
     public void nextGame(){
-        nextGame = text.situations[num_level][situations].next;
+        this.nextGame = text.situations[num_level][situations].next;
     }
 
     public void setValue(){
         if(!condition.equals("")){
-            this.condition = condition;
-            num_level = condition.length()-1;
+            num_level = condition.length();
             situations = Integer.parseInt(Character.toString(condition.charAt(condition.length()-1)));
         }else {
             num_level = 0;
@@ -46,9 +48,16 @@ public class Game implements Serializable {
         this.condition = this.condition.concat(s);
     }
 
+
+
+    public void action(){
+       gamers.gold-=text.situations[num_level][situations].dellGold;
+    }
+
+
 }
 
-class Gamers{
+class Gamers implements Serializable{
     String name = "";
     int gold = 100;
 
