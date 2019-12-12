@@ -17,7 +17,7 @@ public class GameActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        Game game = new Game("","1");
+        Game game = new Game("","");
         Intent i = this.getIntent();;
         final String name = i.getStringExtra("name");
         //game.main(i.getStringExtra("name"));
@@ -29,7 +29,7 @@ public class GameActivity extends Activity {
         tw_gold.setText("Gold: " + 100);
 
         TextView tw_inf =(TextView) findViewById(R.id.tw_inf_game);
-        tw_inf.setText(game.text.situations[0][0].s);
+        tw_inf.setText(game.getAnswer());
 
         RadioButton rb1 = (RadioButton) findViewById(R.id.rb_1);
         RadioButton rb2 = (RadioButton) findViewById(R.id.rb_2);
@@ -41,26 +41,42 @@ public class GameActivity extends Activity {
 
         Button b = (Button) findViewById(R.id.b_answer);
 
+        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                idRb = checkedId;
+            }
+        });
+
         View.OnClickListener listener = (new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //Intent i = new Intent(GameActivity.this, GameActivity1.class);
-                Game game = new Game(name,Integer.toString(idRb));
-                //game.setCondition(Integer.toString(getId(idRb) - 1));
+                Game game = new Game(name,"");
+                game.action();
+                game.setCondition(Integer.toString(idRb));
                 //game.setValue();
+
+
 
                 Intent i;
                 if(game.nextGame){
-                    //i.putExtra(Game.class.getCanonicalName(),game);
-                     i = new Intent(GameActivity.this, GameActivity1.class);
+                    i = new Intent(GameActivity.this, GameActivity1.class);
+                    i.putExtra(Game.class.getSimpleName(),game);
+                    startActivity(i);
                 } else {
                     //i.putExtra(Game.class.getCanonicalName(),game);
                      i = new Intent(GameActivity.this, EndActivity.class);
+                     startActivity(i);
+                     //i.putExtra(Game.class.getCanonicalName(),game);
                 }
 
                 //i.putExtra(Game.class.getSimpleName(), game);
-                startActivity(i);
+
             }
         });
 
@@ -68,13 +84,6 @@ public class GameActivity extends Activity {
 
     }
 
-    public void onRadioButtonClicked(View view) {
-        boolean checked = ((RadioButton) view).isChecked();
-
-        if(checked){
-            idRb = view.getId();
-        }
-    }
 
     public int getId(){
         switch (idRb){
@@ -110,5 +119,7 @@ public class GameActivity extends Activity {
         return 1;
 
     }
+
+
 
 }
