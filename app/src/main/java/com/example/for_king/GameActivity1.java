@@ -18,24 +18,20 @@ public class GameActivity1 extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        //Game game = new Game();
-        //Intent i = new Intent(GameActivity1.this, EndActivity.class);
-        //game.main(i.getStringExtra("name"));
-
-
         Intent i = this.getIntent();
         Bundle bundle = i.getExtras();
 
-        setGame((Game) bundle.getSerializable(Game.class.getSimpleName()));
-        game.setCondition(Integer.toString(0));
+        game = (Game) bundle.getSerializable(Game.class.getSimpleName());
+
+        //game.setCondition(Integer.toString(0));
 
         TextView tw_inf =(TextView) findViewById(R.id.tw_inf_game);
-        tw_inf.setText(game.getAnswer());
         tw_inf.setText(game.getAnswer());
 
         TextView tw_name = (TextView) findViewById(R.id.tw_name);
         TextView tw_gold = (TextView) findViewById(R.id.tw_gold);
 
+        //tw_name.setText("Name: " + game.condition);
         tw_name.setText("Name: " + game.gamers.name);
         tw_gold.setText("Gold: " + game.gamers.gold);
 
@@ -76,6 +72,7 @@ public class GameActivity1 extends Activity {
                 } else {
                     //i.putExtra(Game.class.getCanonicalName(),game);
                     i = new Intent(GameActivity1.this, EndActivity.class);
+                    i.putExtra(Game.class.getSimpleName(),game);
                     startActivity(i);
                     //i.putExtra(Game.class.getCanonicalName(),game);
                 }
@@ -124,8 +121,8 @@ public class GameActivity1 extends Activity {
         return 1;
     }
 
-    public void setGame(Game game){
+   /* public void setGame(Game game){
         this.game = game;
-    }
+    }*/
 
 }
