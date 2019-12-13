@@ -57,11 +57,9 @@ public class GameActivity extends Activity {
 
                 //Intent i = new Intent(GameActivity.this, GameActivity1.class);
                 Game game = new Game(name,"");
+                game.setCondition(Integer.toString(getId()));
                 game.action();
-                game.setCondition(Integer.toString(idRb));
                 //game.setValue();
-
-
 
                 Intent i;
                 if(game.nextGame){
@@ -71,6 +69,7 @@ public class GameActivity extends Activity {
                 } else {
                     //i.putExtra(Game.class.getCanonicalName(),game);
                      i = new Intent(GameActivity.this, EndActivity.class);
+                     i.putExtra(Game.class.getSimpleName(),game);
                      startActivity(i);
                      //i.putExtra(Game.class.getCanonicalName(),game);
                 }

@@ -8,9 +8,11 @@
 
     <TextView
         android:id="@+id/tw_inf_game"
-        android:layout_width="fill_parent"
-        android:layout_height="51dp"
-        android:layout_marginTop="185dp"
+        android:layout_width="205dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="208dp"
         android:text="Конец игры"
         android:textColor="#000000"
         android:textSize="36sp"
@@ -21,10 +23,12 @@
         android:id="@+id/tw_end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="48dp"
         android:text="TextView"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/tw_inf_game"
-        tools:layout_editor_absoluteX="101dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tw_inf_game" />
 </androidx.constraintlayout.widget.ConstraintLayout>
